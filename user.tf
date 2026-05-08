@@ -6,6 +6,12 @@ resource "vault_auth_backend" "userpass" {
   }
 }
 
+resource "vault_policy" "admin" {
+  name   = "admin"
+  policy = file("${path.module}/policies/admin.hcl")
+}
+
+
 resource "vault_identity_entity" "adborden" {
   name     = "adborden"
   policies = ["admin"]
