@@ -11,12 +11,11 @@ fmt:
 validate:
 	terraform validate
 
-plan.tfplan:
-	terraform plan -out=$@
-
-plan: plan.tfplan
+plan:
+	terraform plan -out=plan.tfplan
 
 apply:
 	terraform apply plan.tfplan
+	rm plan.tfplan
 
 test: check validate
