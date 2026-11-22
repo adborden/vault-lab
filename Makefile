@@ -3,19 +3,19 @@
 .DEFAULT_GOAL := test
 
 check:
-	terraform fmt -check
+	tofu fmt -check
 
 fmt:
-	terraform fmt
+	tofu fmt
 
 validate:
-	terraform validate
+	tofu validate
 
 plan:
-	terraform plan -out=plan.tfplan
+	tofu plan -out=plan.tfplan
 
 apply:
-	terraform apply plan.tfplan
+	tofu apply plan.tfplan
 	rm plan.tfplan
 
 test: check validate
